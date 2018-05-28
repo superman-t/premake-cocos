@@ -233,54 +233,6 @@ void GLProgramCache::loadDefaultGLPrograms()
     _programs.emplace(GLProgram::SHADER_NAME_LABEL_OUTLINE, p);
 
     p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DPosition);
-    _programs.emplace(GLProgram::SHADER_3D_POSITION, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DPositionTex);
-    _programs.emplace(GLProgram::SHADER_3D_POSITION_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DSkinPositionTex);
-    _programs.emplace(GLProgram::SHADER_3D_SKINPOSITION_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DPositionNormal);
-    _programs.emplace(GLProgram::SHADER_3D_POSITION_NORMAL, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DPositionNormalTex);
-    _programs.emplace(GLProgram::SHADER_3D_POSITION_NORMAL_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DSkinPositionNormalTex);
-    _programs.emplace(GLProgram::SHADER_3D_SKINPOSITION_NORMAL_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DPositionBumpedNormalTex);
-    _programs.emplace(GLProgram::SHADER_3D_POSITION_BUMPEDNORMAL_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DSkinPositionBumpedNormalTex);
-    _programs.emplace(GLProgram::SHADER_3D_SKINPOSITION_BUMPEDNORMAL_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DParticleColor);
-    _programs.emplace(GLProgram::SHADER_3D_PARTICLE_COLOR, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DParticleTex);
-    _programs.emplace(GLProgram::SHADER_3D_PARTICLE_TEXTURE, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DSkyBox);
-    _programs.emplace(GLProgram::SHADER_3D_SKYBOX, p);
-
-    p = new (std::nothrow) GLProgram();
-    loadDefaultGLProgram(p, kShaderType_3DTerrain);
-    _programs.emplace(GLProgram::SHADER_3D_TERRAIN, p);
-    
-    p = new (std::nothrow) GLProgram();
     loadDefaultGLProgram(p, kShaderType_CameraClear);
     _programs.emplace(GLProgram::SHADER_CAMERA_CLEAR, p);
 
