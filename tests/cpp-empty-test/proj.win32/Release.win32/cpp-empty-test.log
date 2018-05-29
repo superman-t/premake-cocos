@@ -1,0 +1,240 @@
+﻿  复制了 0 个文件
+  复制了 0 个文件
+  AppDelegate.cpp
+..\Classes\AppDelegate.cpp(145): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  HelloWorldScene.cpp
+..\Classes\HelloWorldScene.cpp(65): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  main.cpp
+  AnimateClip.cpp
+  AnimationClip.cpp
+  AnimationManager.cpp
+  Bezier.cpp
+reader\animation\Bezier.cpp(38): warning C4305: “初始化”: 从“double”到“float”截断
+  Easing.cpp
+  Collider.cpp
+  ColliderManager.cpp
+reader\collider\ColliderManager.cpp(208): warning C4305: “参数”: 从“double”到“float”截断
+  Contract.cpp
+  Intersection.cpp
+  CreatorReader.cpp
+reader\CreatorReader.cpp(251): warning C4800: “const unsigned char”: 将值强制为布尔值“true”或“false”(性能警告)
+reader\CreatorReader.cpp(1217): warning C4305: “参数”: 从“double”到“float”截断
+reader\CreatorReader.cpp(1447): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  Animation.cpp
+reader\dragonbones\animation\Animation.cpp(514): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  AnimationState.cpp
+reader\dragonbones\animation\AnimationState.cpp(312): warning C4018: “<”: 有符号/无符号不匹配
+reader\dragonbones\animation\AnimationState.cpp(620): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  TimelineState.cpp
+reader\dragonbones\animation\TimelineState.cpp(725): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  WorldClock.cpp
+  Armature.cpp
+reader\dragonbones\armature\Armature.cpp(511): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  Bone.cpp
+reader\dragonbones\armature\Bone.cpp(449): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  Slot.cpp
+reader\dragonbones\armature\Slot.cpp(215): warning C4018: “<”: 有符号/无符号不匹配
+reader\dragonbones\armature\Slot.cpp(216): warning C4018: “<”: 有符号/无符号不匹配
+reader\dragonbones\armature\Slot.cpp(534): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  正在编译...
+  CCArmatureDisplay.cpp
+reader\dragonbones\cocos2dx\CCArmatureDisplay.cpp(227): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  CCFactory.cpp
+reader\dragonbones\cocos2dx\CCFactory.cpp(279): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  CCSlot.cpp
+reader\dragonbones\cocos2dx\CCSlot.cpp(455): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  CCTextureData.cpp
+reader\dragonbones\cocos2dx\CCTextureData.cpp(53): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  BaseObject.cpp
+  EventObject.cpp
+  BaseFactory.cpp
+reader\dragonbones\factories\BaseFactory.cpp(201): warning C4018: “<”: 有符号/无符号不匹配
+reader\dragonbones\factories\BaseFactory.cpp(452): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  AnimationData.cpp
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::emplace_hint”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>>
+          ]
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::_Insert_hint”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>>
+          ]
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::_Insert_at”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>>
+          ]
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::_Insert_nohint”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>>
+          ]
+reader\dragonbones\model\AnimationData.cpp(128): warning C4503: “std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::_Buynode_if_nil”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>>
+          ]
+  ArmatureData.cpp
+reader\dragonbones\model\ArmatureData.cpp(404): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  DragonBonesData.cpp
+reader\dragonbones\model\DragonBonesData.cpp(45): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  FrameData.cpp
+  TimelineData.cpp
+  DataParser.cpp
+reader\dragonbones\parsers\DataParser.cpp(516): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  JSONDataParser.cpp
+d:\download\cocos2d-x-3.16\tests\cpp-empty-test\proj.win32\reader\dragonbones\model\FrameData.h(124): warning C4018: “<”: 有符号/无符号不匹配
+  d:\download\cocos2d-x-3.16\tests\cpp-empty-test\proj.win32\reader\dragonbones\model\FrameData.h(109): note: 编译类 模板 成员函数“void dragonBones::TweenFrameData<dragonBones::ExtensionFrameData>::samplingCurve(std::vector<float,std::allocator<_Ty>> &,unsigned int,std::vector<_Ty,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=float
+          ]
+  d:\download\cocos2d-x-3.16\tests\cpp-empty-test\proj.win32\reader\dragonbones\parsers\JSONDataParser.h(183): note: 参见对正在编译的函数 模板 实例化“void dragonBones::TweenFrameData<dragonBones::ExtensionFrameData>::samplingCurve(std::vector<float,std::allocator<_Ty>> &,unsigned int,std::vector<_Ty,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=float
+          ]
+  d:\download\cocos2d-x-3.16\tests\cpp-empty-test\proj.win32\reader\dragonbones\model\FrameData.h(239): note: 参见对正在编译的类 模板 实例化“dragonBones::TweenFrameData<dragonBones::ExtensionFrameData>”的引用
+d:\download\cocos2d-x-3.16\tests\cpp-empty-test\proj.win32\reader\dragonbones\model\FrameData.h(129): warning C4018: “<”: 有符号/无符号不匹配
+reader\dragonbones\parsers\JSONDataParser.cpp(1066): warning C4503: “std::_Compressed_pair<std::less<_Kty>,std::_Compressed_pair<std::_Wrap_alloc<std::allocator<_Other>>,std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>,true>,true>::_Get_second”: 超出修饰名的长度，名称被截断
+          with
+          [
+              _Kty=std::string,
+              _Other=std::_Tree_node<std::pair<const std::string,std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>>,void *>,
+              _Ty=std::map<std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::map<std::string,dragonBones::FFDTimelineData *,std::less<std::string>,std::allocator<std::pair<const std::string,dragonBones::FFDTimelineData *>>>>>>
+          ]
+  TextureData.cpp
+  PageView.cpp
+  RichtextStringVisitor.cpp
+    正在创建库 D:\Download\cocos2d-x-3.16\build\Release.win32\cpp-empty-test\cpp-empty-test.lib 和对象 D:\Download\cocos2d-x-3.16\build\Release.win32\cpp-empty-test\cpp-empty-test.exp
+  正在生成代码
+  All 11600 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  cpp-empty-test.vcxproj -> D:\Download\cocos2d-x-3.16\build\Release.win32\cpp-empty-test\cpp-empty-test.exe
+  cpp-empty-test.vcxproj -> D:\Download\cocos2d-x-3.16\build\Release.win32\cpp-empty-test\cpp-empty-test.pdb (Full PDB)

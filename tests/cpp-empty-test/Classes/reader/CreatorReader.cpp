@@ -364,9 +364,6 @@ cocos2d::Node* CreatorReader::createTree(const buffers::NodeTree* tree) const
         case buffers::AnyNode_Mask:
             node = createMask(static_cast<const buffers::Mask*>(buffer));
             break;
-        case buffers::AnyNode_DragonBones:
-            node = createArmatureDisplay(static_cast<const buffers::DragonBones*>(buffer));
-            break;
         case buffers::AnyNode_MotionStreak:
             node = createMotionStreak(static_cast<const buffers::MotionStreak*>(buffer));
             break;
@@ -1300,48 +1297,6 @@ void CreatorReader::parseMotionStreak(cocos2d::MotionStreak* motionStreak, const
  * Misc Nodes
  *
  *=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-
-
-dragonBones::CCArmatureDisplay* CreatorReader::createArmatureDisplay(const buffers::DragonBones* dragonBonesBuffer) const
-{
-    const auto& boneDataPath = dragonBonesBuffer->boneDataPath();
-    const auto& atlasDataPath = dragonBonesBuffer->textureDataPath();
-    
-    if (boneDataPath && atlasDataPath)
-    {
-        auto factory = dragonBones::CCFactory::getInstance();
-        const auto& boneDataName = dragonBonesBuffer->boneDataName();
-        
-        // DragonBones can not reload Bone data in debug mode, may cause asset crash.
-        if (factory->getDragonBonesData(boneDataName->str()) == nullptr)
-        {
-            factory->loadDragonBonesData(boneDataPath->str());
-            factory->loadTextureAtlasData(atlasDataPath->str());
-        }
-        
-        const auto& armatureName = dragonBonesBuffer->armature();
-        auto display = factory->buildArmatureDisplay(armatureName->str());
-        parseArmatureDisplay(display, dragonBonesBuffer);
-        
-        return display;
-    }
-    else
-        return nullptr;
-    
-}
-
-void CreatorReader::parseArmatureDisplay(dragonBones::CCArmatureDisplay* armatureDisplay, const buffers::DragonBones* dragonBonesBuffer) const
-{
-    const auto& nodeBuffer = dragonBonesBuffer->node();
-    parseNode(armatureDisplay, nodeBuffer);
-    
-    const auto& animationName = dragonBonesBuffer->animation();
-    if (animationName)
-    {
-        armatureDisplay->getAnimation().play(animationName->str());
-    }
-}
-
 
 //
 // Helper methods

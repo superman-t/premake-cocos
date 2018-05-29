@@ -164,21 +164,6 @@ namespace utils
     {
         return dynamic_cast<T>(findChild(levelRoot, tag));
     }
-
-    /**
-     *  Gets the md5 hash for the given file.
-     *  @param filename The file to calculate md5 hash.
-     *  @return The md5 hash for the file
-     */
-    CC_DLL std::string getFileMD5Hash(const std::string &filename);
-
-
-    /**
-    *  Gets the md5 hash for the given buffer.
-    *  @param data The buffer to calculate md5 hash.
-    *  @return The md5 hash for the data
-    */
-    CC_DLL std::string getDataMD5Hash(const Data &data);
 }
 
 NS_CC_END

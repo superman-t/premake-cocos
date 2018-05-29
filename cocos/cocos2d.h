@@ -140,7 +140,7 @@ THE SOFTWARE.
 #include "2d/CCCameraBackgroundBrush.h"
 #include "2d/CCGrabber.h"
 #include "2d/CCGrid.h"
-#include "2d/CCLight.h"
+
 
 // include
 #include "base/CCProtocols.h"
@@ -193,13 +193,6 @@ THE SOFTWARE.
 //Enhance modification end
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY)
-    #include "platform/blackberry/CCApplication.h"
-    #include "platform/blackberry/CCGLViewImpl.h"
-    #include "platform/blackberry/CCGL.h"
-    #include "platform/blackberry/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY
-
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
     #include "platform/win32/CCApplication-win32.h"
     #include "platform/desktop/CCGLViewImpl-desktop.h"
@@ -214,26 +207,6 @@ THE SOFTWARE.
     #include "platform/mac/CCStdC-mac.h"
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_MAC
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    #include "platform/linux/CCApplication-linux.h"
-    #include "platform/desktop/CCGLViewImpl-desktop.h"
-    #include "platform/linux/CCGL-linux.h"
-    #include "platform/linux/CCStdC-linux.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	#include "platform/winrt/CCApplication.h"
-	#include "platform/winrt/CCGLViewImpl-winrt.h"
-	#include "platform/winrt/CCGL.h"
-	#include "platform/winrt/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN)
-	#include "platform/tizen/CCApplication-tizen.h"
-	#include "platform/tizen/CCGLViewImpl-tizen.h"
-	#include "platform/tizen/CCGL-tizen.h"
-	#include "platform/tizen/CCStdC-tizen.h"
-#endif
 
 // script_support
 #include "base/CCScriptSupport.h"
@@ -257,7 +230,6 @@ THE SOFTWARE.
 #include "2d/CCComponent.h"
 #include "2d/CCComponentContainer.h"
 
-#include "deprecated/CCDeprecated.h"
 
 
 NS_CC_BEGIN

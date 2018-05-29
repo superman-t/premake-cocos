@@ -1,0 +1,7 @@
+﻿  复制了 0 个文件
+  复制了 0 个文件
+  main.cpp
+AppDelegate.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+    正在创建库 D:\Download\cocos2d-x-3.16\build\Debug.win32\cpp-empty-test\cpp-empty-test.lib 和对象 D:\Download\cocos2d-x-3.16\build\Debug.win32\cpp-empty-test\cpp-empty-test.exp
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: 无法解析的外部符号 _WinMain@16，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用
+D:\Download\cocos2d-x-3.16\build\Debug.win32\cpp-empty-test\cpp-empty-test.exe : fatal error LNK1120: 1 个无法解析的外部命令

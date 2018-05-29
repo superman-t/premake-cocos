@@ -24,7 +24,7 @@ THE SOFTWARE.
 
 #include "ui/UITextAtlas.h"
 #include "2d/CCLabel.h"
-#include "editor-support/cocostudio/CocosStudioExtension.h"
+#include "ui/Extension.h"
 
 NS_CC_BEGIN
 

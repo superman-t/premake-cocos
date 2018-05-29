@@ -35,7 +35,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("Cpp Empty Test");
+        glview = GLViewImpl::create("Cocos Creator Test");
         director->setOpenGLView(glview);
     }
 
@@ -86,23 +86,22 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
 
-	 creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/hello.ccreator" );
- 
-	 // will create the needed spritesheets + design resolution
-	 reader->setup();
- 
-	 // get the scene graph
-	 Scene* scene = reader->getSceneGraph();
- 
- 
-	 // ...and use it
-	 Director::getInstance()->replaceScene( scene );
+	creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/hello.ccreator" );
 
-     // // create a scene. it's an autorelease object
-     // auto scene = HelloWorld::scene();
-     //
-     // // run
-     // director->runWithScene(scene);
+	// will create the needed spritesheets + design resolution
+	reader->setup();
+
+	// get the scene graph
+	Scene* scene = reader->getSceneGraph();
+
+	// ...and use it
+	Director::getInstance()->replaceScene( scene );
+
+	// // create a scene. it's an autorelease object
+	// auto scene = HelloWorld::scene();
+	//
+	// // run
+	// director->runWithScene(scene);
 
     return true;
 }
@@ -112,14 +111,10 @@ void AppDelegate::applicationDidEnterBackground()
 {
     Director::getInstance()->stopAnimation();
 
-    // if you use SimpleAudioEngine, it must be paused
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
-    // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
