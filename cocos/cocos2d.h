@@ -124,7 +124,6 @@ THE SOFTWARE.
 #include "2d/CCLayer.h"
 #include "2d/CCMenu.h"
 #include "2d/CCMenuItem.h"
-#include "2d/CCMotionStreak.h"
 #include "2d/CCNode.h"
 #include "2d/CCNodeGrid.h"
 #include "2d/CCProgressTimer.h"
@@ -230,7 +229,11 @@ THE SOFTWARE.
 #include "2d/CCComponent.h"
 #include "2d/CCComponentContainer.h"
 
-
+// Deprecated
+// All deprecated features are include inside deprecated/CCDeprecated.h.
+// It is recommended that you just include what is needed.
+// eg. #include "deprecated/CCString.h" if you only need cocos2d::__String.
+#include "deprecated/CCDeprecated.h"
 
 NS_CC_BEGIN
 

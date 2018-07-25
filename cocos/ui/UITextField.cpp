@@ -599,7 +599,7 @@ void TextField::update(float /*dt*/)
     if (getDeleteBackward())
     {
         _textFieldRendererAdaptDirty = true;
-        updateContentSizeWithTextureSize(_textFieldRenderer->getContentSize());
+        // updateContentSizeWithTextureSize(_textFieldRenderer->getContentSize());
 
         deleteBackwardEvent();
         setDeleteBackward(false);
@@ -609,7 +609,7 @@ void TextField::update(float /*dt*/)
     {
         //we update the content size first such that when user call getContentSize() in event callback won't be wrong
         _textFieldRendererAdaptDirty = true;
-        updateContentSizeWithTextureSize(_textFieldRenderer->getContentSize());
+        // updateContentSizeWithTextureSize(_textFieldRenderer->getContentSize());
         
         insertTextEvent();
         setInsertText(false);

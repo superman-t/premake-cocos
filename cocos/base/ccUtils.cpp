@@ -324,6 +324,9 @@ Sprite* createSpriteFromBase64Cached(const char* base64String, const char* key)
 
         Image *image = new (std::nothrow) Image();
         bool imageResult = image->initWithImageData(decoded, length);
+		// std::string file( key + 1 );
+		// CCLOG( "->%s", file );
+		// image->saveToFile( file + ".png" );
         CCASSERT(imageResult, "Failed to create image from base64!");
         free(decoded);
 

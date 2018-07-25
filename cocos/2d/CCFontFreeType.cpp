@@ -557,12 +557,6 @@ void FontFreeType::renderCharAt(unsigned char *dest,int posX, int posY, unsigned
 
             for (long x = 0; x < bitmapWidth; ++x)
             {    
-                /* Dual channel 16-bit output (more complicated, but good precision and range) */
-                /*int index = (iX + ( iY * destSize )) * 3;                
-                int index2 = (bitmap_y + x)*3;
-                dest[index] = out[index2];
-                dest[index + 1] = out[index2 + 1];
-                dest[index + 2] = out[index2 + 2];*/
 
                 //Single channel 8-bit output 
                 dest[iX + ( iY * FontAtlas::CacheTextureWidth )] = distanceMap[bitmap_y + x];

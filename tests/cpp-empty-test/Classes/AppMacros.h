@@ -36,12 +36,12 @@ typedef struct tagResource
     char directory[100];
 }Resource;
 
-static Resource smallResource  =  { cocos2d::Size(480, 320),   "iphone" };
+static Resource smallResource  =  { cocos2d::Size(960, 640),   "iphone" };
 static Resource mediumResource =  { cocos2d::Size(1024, 768),  "ipad"   };
 static Resource largeResource  =  { cocos2d::Size(2048, 1536), "ipadhd" };
 
 #if (TARGET_DESIGN_RESOLUTION_SIZE == DESIGN_RESOLUTION_480X320)
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+static cocos2d::Size designResolutionSize = cocos2d::Size(960, 640);
 #elif (TARGET_DESIGN_RESOLUTION_SIZE == DESIGN_RESOLUTION_1024X768)
 static cocos2d::Size designResolutionSize = cocos2d::Size(1024, 768);
 #elif (TARGET_DESIGN_RESOLUTION_SIZE == DESIGN_RESOLUTION_2048X1536)

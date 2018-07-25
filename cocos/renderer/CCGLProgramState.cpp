@@ -519,9 +519,9 @@ void GLProgramState::apply(const Mat4& modelView)
 {
     applyGLProgram(modelView);
 
-    applyAttributes();
-
-    applyUniforms();
+     applyAttributes();
+    
+     applyUniforms();
 }
 
 void GLProgramState::updateUniformsAndAttributes()

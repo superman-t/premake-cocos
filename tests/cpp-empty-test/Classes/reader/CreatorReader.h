@@ -26,7 +26,7 @@
 #include "cocos2d.h"
 
 #include "ui/CocosGUI.h"
-#include "animation/AnimationClip.h"
+#include "animation/CreatorAnimationClip.h"
 #include "animation/AnimationManager.h"
 #include "Macros.h"
 #include "CreatorReader_generated.h"
@@ -36,7 +36,7 @@
 
 NS_CCR_BEGIN
 
-class CreatorReader: public cocos2d::Ref
+class __declspec(dllexport) CreatorReader: public cocos2d::Ref
 {
 public:
     static CreatorReader* createWithFilename(const std::string& filename);
@@ -89,11 +89,13 @@ protected:
     cocos2d::Sprite* createSprite(const buffers::Sprite* spriteBuffer) const;
     void parseSprite(cocos2d::Sprite* sprite, const buffers::Sprite* spriteBuffer) const;
 
+  
     cocos2d::Label* createLabel(const buffers::Label* labelBuffer) const;
     void parseLabel(cocos2d::Label* label, const buffers::Label* labelBuffer) const;
 
     cocos2d::ui::RichText* createRichText(const buffers::RichText* richTextBuffer) const;
     void parseRichText(cocos2d::ui::RichText* richText, const buffers::RichText* richTextBuffer) const;
+
 
     cocos2d::ui::ScrollView* createScrollView(const buffers::ScrollView* scrollViewBuffer) const;
     void parseScrollView(cocos2d::ui::ScrollView* scrollView, const buffers::ScrollView* scrollViewBuffer) const;
@@ -106,6 +108,8 @@ protected:
 
     cocos2d::ui::Button* createButton(const buffers::Button* buttonBuffer) const;
     void parseButton(cocos2d::ui::Button* button, const buffers::Button* buttonBuffer) const;
+
+    
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     cocos2d::experimental::ui::VideoPlayer* createVideoPlayer(const buffers::VideoPlayer* videoPlayerBuffer) const;
@@ -129,9 +133,6 @@ protected:
     
     cocos2d::ClippingNode* createMask(const buffers::Mask* maskBuffer) const;
     void parseMask(cocos2d::ClippingNode* mask, const buffers::Mask* maskBuffer) const;
-    
-    cocos2d::MotionStreak* createMotionStreak(const buffers::MotionStreak* motionStreakBuffer) const;
-    void parseMotionStreak(cocos2d::MotionStreak* motionStreak, const buffers::MotionStreak* motionStreakBuffer) const;
     
     void setupSpriteFrames();
     void setupCollisionMatrix();

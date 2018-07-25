@@ -27,6 +27,7 @@ THE SOFTWARE.
 #define __UIEditBoxIMPLWIN_H__
 
 #include "platform/CCPlatformConfig.h"
+#include "UITextField.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #include "ui/UIEditBox/UIEditBoxImpl-common.h"
@@ -63,6 +64,8 @@ namespace ui {
         virtual void nativeCloseKeyboard() override;
         virtual void setNativeMaxLength(int maxLength);
 
+		TextField* _textField;
+
     private:
         void createSingleLineEditCtrl();
         void createMultilineEditCtrl();
@@ -86,7 +89,9 @@ namespace ui {
         static HWND s_previousFocusWnd;
         static bool s_isInitialized;
         static int s_editboxChildID;
-        static void lazyInit();
+        void lazyInit();
+
+
     };
 
 }

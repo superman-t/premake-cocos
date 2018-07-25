@@ -40,6 +40,6 @@ void main()
 {
     gl_Position = CC_MVPMatrix * a_position;
     gl_PointSize = a_texCoord.x;
-    v_fragmentColor = vec4(a_color.rgb * a_color.a * u_alpha, a_color.a * u_alpha);
+    v_fragmentColor = vec4(0.0, 0.0, 1.0, 1.0);
 }
 )";

@@ -245,16 +245,9 @@ void Director::setDefaultValues(void)
     // Display FPS
     _displayStats = conf->getValue("cocos2d.x.display_fps", Value(false)).asBool();
 
-    // GL projection
-    std::string projection = conf->getValue("cocos2d.x.gl.projection", Value("3d")).asString();
-    if (projection == "3d")
-        _projection = Projection::_3D;
-    else if (projection == "2d")
-        _projection = Projection::_2D;
-    else if (projection == "custom")
-        _projection = Projection::CUSTOM;
-    else
-        CCASSERT(false, "Invalid projection value");
+
+    _projection = Projection::_2D;
+  
 
     // Default pixel format for PNG images with alpha
     std::string pixel_format = conf->getValue("cocos2d.x.texture.pixel_format_for_png", Value("rgba8888")).asString();

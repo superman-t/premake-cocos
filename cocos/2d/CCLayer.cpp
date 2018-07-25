@@ -630,7 +630,15 @@ void LayerColor::onDraw(const Mat4& transform, uint32_t /*flags*/)
 
     GL::blendFunc( _blendFunc.src, _blendFunc.dst );
 
+	_indices[0] = 0;
+	_indices[1] = 1;
+	_indices[2] = 2;
+	_indices[3] = 3;
+	_indices[4] = 2;
+	_indices[5] = 1;
+
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+	// glDrawElements( GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, _indices );
 
     CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1,4);
 }

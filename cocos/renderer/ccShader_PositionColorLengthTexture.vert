@@ -48,7 +48,7 @@ uniform float u_alpha;
 
 void main()
 {
-    v_color = vec4(a_color.rgb * a_color.a * u_alpha, a_color.a * u_alpha);
+    v_color = vec4(1.0, 0.0, 0.0, 1.0);
     v_texcoord = a_texcoord;
 
     gl_Position = CC_MVPMatrix * a_position;

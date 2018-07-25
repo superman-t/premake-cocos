@@ -127,10 +127,10 @@ void AbstractCheckButton::loadTextures(const std::string& backGround,
                             TextureResType texType)
 {
     loadTextureBackGround(backGround,texType);
-    loadTextureBackGroundSelected(backGroundSelected,texType);
+    // loadTextureBackGroundSelected(backGroundSelected,texType);
     loadTextureFrontCross(cross,texType);
-    loadTextureBackGroundDisabled(backGroundDisabled,texType);
-    loadTextureFrontCrossDisabled(frontCrossDisabled,texType);
+    // loadTextureBackGroundDisabled(backGroundDisabled,texType);
+    // loadTextureFrontCrossDisabled(frontCrossDisabled,texType);
 }
 
 void AbstractCheckButton::loadTextureBackGround(const std::string& backGround,TextureResType texType)
@@ -316,6 +316,10 @@ void AbstractCheckButton::onPressStateChangedToNormal()
     {
         _frontCrossRenderer->setVisible(true);
         _frontCrossRendererAdaptDirty = true;
+    } else
+    {
+		_frontCrossRenderer->setVisible( false );
+		_frontCrossRendererAdaptDirty = true;
     }
 }
 

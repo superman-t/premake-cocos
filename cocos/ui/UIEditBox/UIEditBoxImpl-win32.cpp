@@ -52,16 +52,24 @@ namespace ui {
 
     void EditBoxImplWin::lazyInit()
     {
-        s_hwndCocos = cocos2d::Director::getInstance()->getOpenGLView()->getWin32Window();
-        LONG style = GetWindowLong(s_hwndCocos, GWL_STYLE);
-        SetWindowLong(s_hwndCocos, GWL_STYLE, style | WS_CLIPCHILDREN);
-        s_isInitialized = true;
-        s_previousFocusWnd = s_hwndCocos;
+         s_hwndCocos = cocos2d::Director::getInstance()->getOpenGLView()->getWin32Window();
+         LONG style = GetWindowLong(s_hwndCocos, GWL_STYLE);
+         SetWindowLong(s_hwndCocos, GWL_STYLE, style | WS_CLIPCHILDREN);
+         s_isInitialized = true;
+         s_previousFocusWnd = s_hwndCocos;
+        
+         s_hInstance = GetModuleHandle(NULL);
+        
+        
+         s_prevCocosWndProc = (WNDPROC)SetWindowLongPtr(s_hwndCocos, GWL_WNDPROC, (LONG_PTR)hookGLFWWindowProc);
 
-        s_hInstance = GetModuleHandle(NULL);
-
-
-        s_prevCocosWndProc = (WNDPROC)SetWindowLongPtr(s_hwndCocos, GWL_WNDPROC, (LONG_PTR)hookGLFWWindowProc);
+		_textField = TextField::create( "", "fonts/DFYuanW7-GB2312.ttf", _fontSize );
+		_textField->setVisible( false );
+		_textField->setCursorEnabled(true);
+		_textField->setTextColor( Color4B::BLACK );
+		// _textField->setAnchorPoint( Vec2( 0.5, 0.5 ) );
+		
+		_editBox->addChild( _textField );
 
     }
 
@@ -107,98 +115,115 @@ namespace ui {
             _editingMode = false;
             hwndEdit = NULL;
         }
+		_textField->setString( "" );
     }
 
     void EditBoxImplWin::createSingleLineEditCtrl()
     {
         this->cleanupEditCtrl();
-        if (!hwndEdit)
-        {
-            hwndEdit = CreateWindowEx(
-                WS_EX_CLIENTEDGE, L"EDIT",   // predefined class 
-                NULL,         // no window title 
-                WS_CHILD | ES_LEFT | WS_BORDER | WS_EX_TRANSPARENT | WS_TABSTOP | ES_AUTOHSCROLL,
-                0,
-                0,
-                0,
-                0,   // set size in WM_SIZE message 
-                s_hwndCocos,         // parent window 
-                (HMENU)s_editboxChildID,   // edit control ID 
-                s_hInstance,
-                this);        // pointer not needed 
-
-            SetWindowLongPtr(hwndEdit, GWL_USERDATA, (LONG_PTR)this);
-            _prevWndProc = (WNDPROC)SetWindowLongPtr(hwndEdit, GWL_WNDPROC, (LONG_PTR)WindowProc);
-
-            ::SendMessageW(hwndEdit, EM_LIMITTEXT, this->_maxLength, 0);
-            s_previousFocusWnd = s_hwndCocos;
-            this->setNativeFont(this->getNativeDefaultFontName(), this->_fontSize);
-            this->setNativeText(this->_text.c_str());
-        }
+         if (!hwndEdit)
+         {
+             hwndEdit = CreateWindowEx(
+                 WS_EX_CLIENTEDGE, L"EDIT",   // predefined class 
+                 NULL,         // no window title 
+                 WS_CHILD | ES_LEFT | WS_BORDER | WS_EX_TRANSPARENT | WS_TABSTOP | ES_AUTOHSCROLL,
+                 0,
+                 0,
+                 0,
+                 0,   // set size in WM_SIZE message 
+                 s_hwndCocos,         // parent window 
+                 (HMENU)s_editboxChildID,   // edit control ID 
+                 s_hInstance,
+                 this);        // pointer not needed 
+        
+             SetWindowLongPtr(hwndEdit, GWL_USERDATA, (LONG_PTR)this);
+             _prevWndProc = (WNDPROC)SetWindowLongPtr(hwndEdit, GWL_WNDPROC, (LONG_PTR)WindowProc);
+        
+             ::SendMessageW(hwndEdit, EM_LIMITTEXT, this->_maxLength, 0);
+             s_previousFocusWnd = s_hwndCocos;
+             this->setNativeFont(this->getNativeDefaultFontName(), this->_fontSize);
+             this->setNativeText(this->_text.c_str());
+         }
+		 // _textField->setSizeType(Widget::SizeType::)
     }
 
     void EditBoxImplWin::createMultilineEditCtrl()
     {
         this->cleanupEditCtrl();
-        if (!hwndEdit)
-        {
-            hwndEdit = CreateWindowEx(
-                WS_EX_CLIENTEDGE, L"EDIT",   // predefined class 
-                NULL,         // no window title 
-                WS_CHILD | ES_LEFT | WS_BORDER | WS_EX_TRANSPARENT | WS_TABSTOP | ES_MULTILINE | ES_AUTOVSCROLL,
-                0,
-                0,
-                0,
-                0,   // set size in WM_SIZE message 
-                s_hwndCocos,         // parent window 
-                (HMENU)s_editboxChildID,   // edit control ID 
-                s_hInstance,
-                this);        // pointer not needed 
+		if( !hwndEdit )
+		{
+			hwndEdit = CreateWindowEx(
+				WS_EX_CLIENTEDGE, L"EDIT",   // predefined class 
+				NULL,         // no window title 
+				WS_CHILD | ES_LEFT | WS_BORDER | WS_EX_TRANSPARENT | WS_TABSTOP | ES_MULTILINE | ES_AUTOVSCROLL,
+				0,
+				0,
+				0,
+				0,   // set size in WM_SIZE message 
+				s_hwndCocos,         // parent window 
+				(HMENU)s_editboxChildID,   // edit control ID 
+				s_hInstance,
+				this );        // pointer not needed 
 
-                              //register new window proc func
-            SetWindowLongPtr(hwndEdit, GWL_USERDATA, (LONG_PTR)this);
-            _prevWndProc = (WNDPROC)SetWindowLongPtr(hwndEdit, GWL_WNDPROC, (LONG_PTR)WindowProc);
-            s_previousFocusWnd = s_hwndCocos;
-            ::SendMessageW(hwndEdit, EM_LIMITTEXT, this->_maxLength, 0);
-            this->setNativeFont(this->getNativeDefaultFontName(), this->_fontSize);
-            this->setNativeText(this->_text.c_str());
-
-        }
+							  //register new window proc func
+			SetWindowLongPtr( hwndEdit, GWL_USERDATA, (LONG_PTR)this );
+			_prevWndProc = (WNDPROC)SetWindowLongPtr( hwndEdit, GWL_WNDPROC, (LONG_PTR)WindowProc );
+			s_previousFocusWnd = s_hwndCocos;
+			::SendMessageW( hwndEdit, EM_LIMITTEXT, this->_maxLength, 0 );
+			this->setNativeFont( this->getNativeDefaultFontName(), this->_fontSize );
+			this->setNativeText( this->_text.c_str() );
+		}
+        
+        // 
+		// ((Label*)(_textField->getVirtualRenderer()))->setLineBreakWithoutSpace( true );
+		// _textField->setContentSize( _editBox->getContentSize() );
+		// _textField->setTextHorizontalAlignment( TextHAlignment::CENTER );
+		// _textField->setTextVerticalAlignment( TextVAlignment::CENTER );
+		// _textField->
     }
 
     void EditBoxImplWin::createNativeControl(const Rect & frame)
     {
 
-        this->createMultilineEditCtrl();
+		this->createMultilineEditCtrl();
+		auto size = frame.size;
+		_textField->setContentSize( size );
+		_textField->setPosition( Vec2( size.width / 2 + _editBox->getPositionX(), size.height / 2 + _editBox->getPositionY() ) );
     }
 
     void EditBoxImplWin::setNativeFont(const char * pFontName, int fontSize)
     {
         //not implemented yet
         this->_fontSize = fontSize;
-        HFONT hFont = CreateFontW(fontSize, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
-            CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
-
-        SendMessage(hwndEdit,             // Handle of edit control
-            WM_SETFONT,         // Message to change the font
-            (WPARAM)hFont,     // handle of the font
-            MAKELPARAM(TRUE, 0) // Redraw text
-        );
+        // HFONT hFont = CreateFontW(fontSize, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_OUTLINE_PRECIS,
+        //     CLIP_DEFAULT_PRECIS, ANTIALIASED_QUALITY, VARIABLE_PITCH, TEXT("Arial"));
+        //
+        // SendMessage(hwndEdit,             // Handle of edit control
+        //     WM_SETFONT,         // Message to change the font
+        //     (WPARAM)hFont,     // handle of the font
+        //     MAKELPARAM(TRUE, 0) // Redraw text
+        // );
+		// _textField->setFontName( pFontName );
+		// _textField->setFontSize( fontSize );
+		// _textField->setsi
     }
 
     void EditBoxImplWin::setNativeFontColor(const Color4B & color)
     {
         //not implemented yet
+		_textField->setTextColor( color );
     }
 
     void EditBoxImplWin::setNativePlaceholderFont(const char * pFontName, int fontSize)
     {
         //not implemented yet
+		// _textField->setPlaceHolder()
     }
 
     void EditBoxImplWin::setNativePlaceholderFontColor(const Color4B& color)
     {
         //not implemented yet
+		// _textField->setPlaceHolderColor( color );
     }
 
     void EditBoxImplWin::setNativeInputMode(EditBox::InputMode inputMode)
@@ -222,6 +247,7 @@ namespace ui {
         if (this->_editBoxInputFlag != cocos2d::ui::EditBox::InputFlag::PASSWORD)
         {
             PostMessage(hwndEdit, EM_SETPASSWORDCHAR, (WPARAM)0, (LPARAM)0);
+			// _textField->setPasswordTextStyle()
         }
     }
     void EditBoxImplWin::setNativeInputFlag(EditBox::InputFlag inputFlag)
@@ -256,8 +282,10 @@ namespace ui {
         std::string text(pText);
         cocos2d::StringUtils::UTF8ToUTF16(text, utf16Result);
         this->_changedTextManually = true;
-        ::SetWindowTextW(hwndEdit, (LPCWSTR)utf16Result.c_str());
+        // ::SetWindowTextW(hwndEdit, (LPCWSTR)utf16Result.c_str());
+		_textField->setString( (char*)utf16Result.c_str() );
         int textLen = text.size();
+
         SendMessage(hwndEdit, EM_SETSEL, textLen, textLen);
         if (_editBoxInputMode == cocos2d::ui::EditBox::InputMode::ANY)
         {
@@ -272,24 +300,27 @@ namespace ui {
     {
         if (visible)
         {
-            ::ShowWindow(hwndEdit, SW_SHOW);
+            // ::ShowWindow(hwndEdit, SW_SHOW);
+			_textField->setVisible( true );
         }
         else
         {
-            ::ShowWindow(hwndEdit, SW_HIDE);
+            // ::ShowWindow(hwndEdit, SW_HIDE);
+			_textField->setVisible( false );
         }
+
     }
     void EditBoxImplWin::updateNativeFrame(const Rect& rect)
 
     {
-        ::SetWindowPos(
-            hwndEdit,
-            HWND_NOTOPMOST,
-            rect.origin.x,
-            rect.origin.y,
-            rect.size.width,
-            rect.size.height,
-            SWP_NOZORDER);
+        // ::SetWindowPos(
+        //     hwndEdit,
+        //     HWND_NOTOPMOST,
+        //     rect.origin.x,
+        //     rect.origin.y,
+        //     rect.size.width,
+        //     rect.size.height,
+        //     SWP_NOZORDER);
 
     }
     const char* EditBoxImplWin::getNativeDefaultFontName()
@@ -299,136 +330,142 @@ namespace ui {
     void EditBoxImplWin::nativeOpenKeyboard()
     {
         ::PostMessage(hwndEdit, WM_SETFOCUS, (WPARAM)s_previousFocusWnd, 0);
-//        s_previousFocusWnd = hwndEdit;
+        s_previousFocusWnd = hwndEdit;
+
         this->editBoxEditingDidBegin();
 
         auto rect = ui::Helper::convertBoundingBoxToScreen(_editBox);
         this->updateNativeFrame(rect);
+		_textField->attachWithIME();
 
     }
     void EditBoxImplWin::nativeCloseKeyboard()
     {
         //don't need to implement
+		
     }
     void EditBoxImplWin::setNativeMaxLength(int maxLength)
     {
 
-        ::SendMessageW(hwndEdit, EM_LIMITTEXT, maxLength, 0);
+		::SendMessageW(hwndEdit, EM_LIMITTEXT, maxLength, 0);
 
     }
 
 
     void EditBoxImplWin::_WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
-        switch (uMsg)
-        {
-        case WM_CHAR:
-            if (wParam == VK_RETURN)
-            {
-                if (_editBoxInputMode != cocos2d::ui::EditBox::InputMode::ANY) {
-                    if (s_previousFocusWnd != s_hwndCocos) {
-                        ::ShowWindow(s_previousFocusWnd, SW_HIDE);
-                        ::SendMessage(s_hwndCocos, WM_SETFOCUS, (WPARAM)s_previousFocusWnd, 0);
-                        s_previousFocusWnd = s_hwndCocos;
-                    }
-                }
-            }
-            break;
-        case WM_SETFOCUS:
-            if (hwnd != s_previousFocusWnd)
-            {
-                ::PostMessage(hwnd, WM_ACTIVATE, (WPARAM)s_previousFocusWnd, 0);
-                ::PostMessage(hwnd, WM_SETCURSOR, (WPARAM)s_previousFocusWnd, 0);
-                s_previousFocusWnd = hwndEdit;
-                _hasFocus = true;
-                this->_changedTextManually = false;
-            }
-           
-            break;
-        case WM_KILLFOCUS:
-            _hasFocus = false;
-            //when app enter background, this message also be called.
-            if (this->_editingMode && !IsWindowVisible(hwnd))
-            {
-                this->editBoxEditingDidEnd(this->getText());
-            }
-            break;
-        default:
-            break;
-
-        }
+         switch (uMsg)
+         {
+         case WM_CHAR:
+             if (wParam == VK_RETURN)
+             {
+                 if (_editBoxInputMode != cocos2d::ui::EditBox::InputMode::ANY) {
+                     if (s_previousFocusWnd != s_hwndCocos) {
+                         // ::ShowWindow(s_previousFocusWnd, SW_HIDE);
+						 _textField->setVisible( false );
+                         ::SendMessage(s_hwndCocos, WM_SETFOCUS, (WPARAM)s_previousFocusWnd, 0);
+                         s_previousFocusWnd = s_hwndCocos;
+                     }
+                 }
+             }
+             break;
+         case WM_SETFOCUS:
+             if (hwnd != s_previousFocusWnd)
+             {
+                 ::PostMessage(hwnd, WM_ACTIVATE, (WPARAM)s_previousFocusWnd, 0);
+                 ::PostMessage(hwnd, WM_SETCURSOR, (WPARAM)s_previousFocusWnd, 0);
+                 s_previousFocusWnd = hwndEdit;
+                 _hasFocus = true;
+                 this->_changedTextManually = false;
+             }
+            
+             break;
+         case WM_KILLFOCUS:
+             _hasFocus = false;
+             //when app enter background, this message also be called.
+             if (this->_editingMode && !IsWindowVisible(hwnd))
+             {
+                 this->editBoxEditingDidEnd(this->getText());
+             }
+             break;
+         default:
+             break;
+        
+         }
     }
 
     std::string EditBoxImplWin::getText()const
     {
-        std::u16string wstrResult;
-        std::string utf8Result;
-
-
-        int inputLength = ::GetWindowTextLengthW(this->hwndEdit);
-        wstrResult.resize(inputLength);
-
-        ::GetWindowTextW(this->hwndEdit, (LPWSTR) const_cast<char16_t*>(wstrResult.c_str()), inputLength + 1);
-        bool conversionResult = cocos2d::StringUtils::UTF16ToUTF8(wstrResult, utf8Result);
-        if (!conversionResult)
-        {
-            CCLOG("warning, editbox input text convertion error.");
-        }
-        return std::move(utf8Result);
+		return _textField->getString();
+        // std::u16string wstrResult;
+        // std::string utf8Result;
+        //
+        //
+        // int inputLength = ::GetWindowTextLengthW(this->hwndEdit);
+        // wstrResult.resize(inputLength);
+        //
+        // ::GetWindowTextW(this->hwndEdit, (LPWSTR) const_cast<char16_t*>(wstrResult.c_str()), inputLength + 1);
+        // bool conversionResult = cocos2d::StringUtils::UTF16ToUTF8(wstrResult, utf8Result);
+        // if (!conversionResult)
+        // {
+        //     CCLOG("warning, editbox input text convertion error.");
+        // }
+        // return std::move(utf8Result);
     }
 
     LRESULT EditBoxImplWin::hookGLFWWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
-        switch (uMsg)
-        {
-        case WM_COMMAND:
-            if (HIWORD(wParam) == EN_CHANGE) {
-                EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr((HWND)lParam, GWLP_USERDATA);
-                if (pThis && !pThis->_changedTextManually)
-                {
-                    pThis->editBoxEditingChanged(pThis->getText());
-                    pThis->_changedTextManually = false;
-                }
-
-            }
-            break;
-        case WM_LBUTTONDOWN:
-            if (s_previousFocusWnd != s_hwndCocos) {
-                ::ShowWindow(s_previousFocusWnd, SW_HIDE);
-
-                EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr(s_previousFocusWnd, GWLP_USERDATA);
-                if (!pThis->_hasFocus)
-                {
-                    if (pThis->_editingMode && !IsWindowVisible(s_previousFocusWnd))
-                    {
-                        pThis->editBoxEditingDidEnd(pThis->getText());
-                    }
-                }
-                else
-                {
-                    ::PostMessage(s_hwndCocos, WM_SETFOCUS, (WPARAM)s_previousFocusWnd, 0);
-                }
-                s_previousFocusWnd = s_hwndCocos;
-            }
-
-            break;
-        default:
-            break;
-        }
-
-        return CallWindowProc(s_prevCocosWndProc, hwnd, uMsg, wParam, lParam);
+         switch (uMsg)
+         {
+         case WM_COMMAND:
+             if (HIWORD(wParam) == EN_CHANGE) {
+                 EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr((HWND)lParam, GWLP_USERDATA);
+                 if (pThis && !pThis->_changedTextManually)
+                 {
+                     pThis->editBoxEditingChanged(pThis->getText());
+                     pThis->_changedTextManually = false;
+                 }
+        
+             }
+             break;
+         case WM_LBUTTONDOWN:
+             if (s_previousFocusWnd != s_hwndCocos) {
+                 // ::ShowWindow(s_previousFocusWnd, SW_HIDE);
+				 // _textField->setVisible( false );
+                 EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr(s_previousFocusWnd, GWLP_USERDATA);
+                 if (!pThis->_hasFocus)
+                 {
+                     if (pThis->_editingMode && !IsWindowVisible(s_previousFocusWnd))
+                     {
+                         pThis->editBoxEditingDidEnd(pThis->getText());
+                     }
+                 }
+                 else
+                 {
+                     ::PostMessage(s_hwndCocos, WM_SETFOCUS, (WPARAM)s_previousFocusWnd, 0);
+                 }
+                 s_previousFocusWnd = s_hwndCocos;
+             }
+        
+             break;
+         default:
+             break;
+         }
+        
+         return CallWindowProc(s_prevCocosWndProc, hwnd, uMsg, wParam, lParam);
+		// return false;
     }
 
     LRESULT EditBoxImplWin::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
     {
-        EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        if (pThis)
-        {
-            pThis->_WindowProc(hwnd, uMsg, wParam, lParam);
-        }
-
-        return CallWindowProc(pThis->_prevWndProc, hwnd, uMsg, wParam, lParam);
-
+         EditBoxImplWin* pThis = (EditBoxImplWin*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+         if (pThis)
+         {
+             pThis->_WindowProc(hwnd, uMsg, wParam, lParam);
+         }
+        
+         return CallWindowProc(pThis->_prevWndProc, hwnd, uMsg, wParam, lParam);
+		// return false;
     }
 }
 

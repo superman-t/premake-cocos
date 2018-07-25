@@ -28,7 +28,7 @@
 #include <tuple>
 
 #include "Macros.h"
-#include "AnimationClip.h"
+#include "CreatorAnimationClip.h"
 
 NS_CCR_BEGIN
 
@@ -36,8 +36,8 @@ class AnimateClip;
 
 struct AnimationInfo
 {
-    AnimationClip* defaultClip;
-    cocos2d::Vector<AnimationClip*> clips;
+	CreatorAnimationClip* defaultClip;
+    cocos2d::Vector<CreatorAnimationClip*> clips;
     bool playOnLoad;
     cocos2d::Node* target; // will retain the target
 };
@@ -62,7 +62,7 @@ private:
     void addAnimation(const AnimationInfo& animationInfo);
     void playOnLoad();
 
-    void runAnimationClip(cocos2d::Node *target, AnimationClip* animationClip);
+    void runAnimationClip(cocos2d::Node *target, CreatorAnimationClip* animationClip);
     // AnimateClip will be released
     void removeAnimateClip(cocos2d::Node *target, const std::string &animationClipName);
     AnimateClip* getAnimateClip(cocos2d::Node *target, const std::string &animationClipName) const;

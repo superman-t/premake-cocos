@@ -1,6 +1,6 @@
 
 #include "AnimationManager.h"
-#include "AnimateClip.h"
+#include "CreatorAnimateClip.h"
 
 NS_CCR_BEGIN
 
@@ -93,7 +93,7 @@ void AnimationManager::resumeAnimationClip(cocos2d::Node *target, const std::str
         animateClip->resumeAnimate();
 }
 
-void AnimationManager::runAnimationClip(cocos2d::Node *target, AnimationClip* animationClip)
+void AnimationManager::runAnimationClip(cocos2d::Node *target, CreatorAnimationClip* animationClip)
 {
     auto animate = AnimateClip::createWithAnimationClip(target, animationClip);
     animate->retain();

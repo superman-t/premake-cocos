@@ -4890,7 +4890,7 @@ void Controller::startDiscoveryController()
 
 	// GFLW sends events when a joystick is connected and disconnected only.
 	// These events need to be filtered:
-	glfwSetJoystickCallback(ControllerImpl::handleConnectionsAndDisconnections);
+	// glfwSetJoystickCallback(ControllerImpl::handleConnectionsAndDisconnections);
 
 	// Poll the joystick axis and buttons
 	Director::getInstance()->getScheduler()->scheduleUpdate(ControllerImpl::getInstance(), 0, false);
@@ -4899,7 +4899,7 @@ void Controller::startDiscoveryController()
 void Controller::stopDiscoveryController()
 {
 	Director::getInstance()->getScheduler()->unscheduleUpdate(ControllerImpl::getInstance());
-	glfwSetJoystickCallback(nullptr);
+	// glfwSetJoystickCallback(nullptr);
 
 	// Also remove all the connected controllers:
 	for ( auto& controller : Controller::s_allController )

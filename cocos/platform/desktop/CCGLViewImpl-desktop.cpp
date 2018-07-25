@@ -234,7 +234,7 @@ GLViewImpl* GLViewImpl::create(const std::string& viewName)
 GLViewImpl* GLViewImpl::create(const std::string& viewName, bool resizable)
 {
     auto ret = new (std::nothrow) GLViewImpl;
-    if(ret && ret->initWithRect(viewName, Rect(0, 0, 960, 640), 1.0f, resizable)) {
+    if(ret && ret->initWithRect(viewName, Rect(0, 0, 1280, 720), 1.0f, resizable)) {
         ret->autorelease();
         return ret;
     }
@@ -507,13 +507,13 @@ void GLViewImpl::setFullscreen(int monitorIndex) {
     if (nullptr == monitor) {
         return;
     }
-    const GLFWvidmode* videoMode = glfwGetVideoMode(monitor);
+    const GLFWvidmode*videoMode  = glfwGetVideoMode(monitor);
     this->setFullscreen(*videoMode, monitor);
 }
 
 void GLViewImpl::setFullscreen(const GLFWvidmode &videoMode, GLFWmonitor *monitor) {
     _monitor = monitor;
-    glfwSetWindowMonitor(_mainWindow, _monitor, 0, 0, videoMode.width, videoMode.height, videoMode.refreshRate);
+    // glfwSetWindowMonitor(_mainWindow, _monitor, 0, 0, videoMode.width, videoMode.height, videoMode.refreshRate);
 }
 
 void GLViewImpl::setWindowed(int width, int height) {
@@ -526,7 +526,7 @@ void GLViewImpl::setWindowed(int width, int height) {
         xpos += (videoMode->width - width) * 0.5;
         ypos += (videoMode->height - height) * 0.5;
         _monitor = nullptr;
-        glfwSetWindowMonitor(_mainWindow, nullptr, xpos, ypos, width, height, GLFW_DONT_CARE);
+        // glfwSetWindowMonitor(_mainWindow, nullptr, xpos, ypos, width, height, GLFW_DONT_CARE);
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
         // on mac window will sometimes lose title when windowed
         glfwSetWindowTitle(_mainWindow, _viewName.c_str());

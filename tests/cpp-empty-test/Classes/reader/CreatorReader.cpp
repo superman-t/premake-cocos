@@ -23,8 +23,8 @@
  ****************************************************************************/
 
 #include "CreatorReader.h"
-#include "animation/AnimationClip.h"
-#include "animation/AnimateClip.h"
+#include "animation/CreatorAnimationClip.h"
+#include "animation/CreatorAnimateClip.h"
 #include "ui/RichtextStringVisitor.h"
 #include "ui/PageView.h"
 #include "collider/Collider.h"
@@ -217,7 +217,11 @@ void CreatorReader::setupSpriteFrames()
             const auto& offset = spriteFrame->offset();
             const auto& originalSize = spriteFrame->originalSize();
 
-            auto sf = cocos2d::SpriteFrame::create(filename,
+			std::string lbtFilename = filename;
+			// ReplacePntToLbt( lbtFilename );
+
+
+            auto sf = cocos2d::SpriteFrame::create( lbtFilename,
                                                    cocos2d::Rect(rect->x(), rect->y(), rect->w(), rect->h()),
                                                    rotated,
                                                    cocos2d::Vec2(offset->x(), offset->y()),
@@ -230,7 +234,9 @@ void CreatorReader::setupSpriteFrames()
             }
 
             if (sf) {
-                frameCache->addSpriteFrame(sf, name);
+				std::string keyname = name;
+				// ReplacePntToLbt( keyname );
+                frameCache->addSpriteFrame(sf, keyname );
                 CCLOG("Adding sprite frame: %s", name.c_str());
             }
         }
@@ -321,7 +327,6 @@ cocos2d::Node* CreatorReader::createTree(const buffers::NodeTree* tree) const
         case buffers::AnyNode_Sprite:
             node = createSprite(static_cast<const buffers::Sprite*>(buffer));
             break;
-   
         case buffers::AnyNode_Scene:
             node = createScene(static_cast<const buffers::Scene*>(buffer));
             break;
@@ -340,7 +345,7 @@ cocos2d::Node* CreatorReader::createTree(const buffers::NodeTree* tree) const
             break;
         case buffers::AnyNode_CreatorScene:
             break;
-       
+  
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         case buffers::AnyNode_VideoPlayer:
             node = createVideoPlayer(static_cast<const buffers::VideoPlayer*>(buffer));
@@ -363,9 +368,6 @@ cocos2d::Node* CreatorReader::createTree(const buffers::NodeTree* tree) const
             break;
         case buffers::AnyNode_Mask:
             node = createMask(static_cast<const buffers::Mask*>(buffer));
-            break;
-        case buffers::AnyNode_MotionStreak:
-            node = createMotionStreak(static_cast<const buffers::MotionStreak*>(buffer));
             break;
     }
 
@@ -471,7 +473,7 @@ void CreatorReader::parseNodeAnimation(cocos2d::Node* node, const buffers::Node*
         const auto& animationClips = animRef->clips();
         
         for (const auto& fbAnimationClip: *animationClips) {
-            auto animClip = AnimationClip::create();
+            auto animClip = CreatorAnimationClip::create();
             
             const auto& duration = fbAnimationClip->duration();
             animClip->setDuration(duration);
@@ -486,7 +488,7 @@ void CreatorReader::parseNodeAnimation(cocos2d::Node* node, const buffers::Node*
             animClip->setName(name->str());
             
             const auto& wrapMode = fbAnimationClip->wrapMode();
-            animClip->setWrapMode(static_cast<AnimationClip::WrapMode>(wrapMode));
+            animClip->setWrapMode(static_cast<CreatorAnimationClip::WrapMode>(wrapMode));
             
             // is it defalut animation clip?
             if (hasDefaultAnimclip && name->str() == animRef->defaultClip()->str())
@@ -602,6 +604,7 @@ void CreatorReader::parseSprite(cocos2d::Sprite* sprite, const buffers::Sprite* 
     // order is important:
     // 1st: set sprite frame
     const auto& frameName = spriteBuffer->spriteFrameName();
+
     if (frameName)
         sprite->setSpriteFrame(frameName->str());
 
@@ -639,7 +642,6 @@ void CreatorReader::parseSprite(cocos2d::Sprite* sprite, const buffers::Sprite* 
     const auto& sizeMode = spriteBuffer->sizeMode();
 #endif
 }
-
 
 cocos2d::Label* CreatorReader::createLabel(const buffers::Label* labelBuffer) const
 {
@@ -745,6 +747,7 @@ void CreatorReader::parseRichText(cocos2d::ui::RichText* richText, const buffers
         richText->setContentSize(cocos2d::Size(maxWidth, contentSize.height));
     }
 }
+
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
  *
@@ -893,7 +896,7 @@ cocos2d::ui::Button* CreatorReader::createButton(const buffers::Button* buttonBu
     const auto& disabledSpriteFrameName = buttonBuffer->disabledSpriteFrameName();
     if (spriteFrameName)
         button = ui::Button::create(spriteFrameName->str(),
-                                    pressedSpriteFrameName ? pressedSpriteFrameName->str() : "",
+                                    pressedSpriteFrameName ? pressedSpriteFrameName->str() : spriteFrameName->str(),
                                     disabledSpriteFrameName ? disabledSpriteFrameName->str() : "",
                                     cocos2d::ui::Widget::TextureResType::PLIST);
     else
@@ -1226,70 +1229,6 @@ void CreatorReader::parseMask(cocos2d::ClippingNode* mask, const buffers::Mask* 
         mask->setStencil(stencil);
         mask->setAlphaThreshold(alphaThreshold);
     }
-}
-
-cocos2d::MotionStreak* CreatorReader::createMotionStreak(const buffers::MotionStreak* motionStreakBuffer) const
-{
-    const auto& timeToFade = motionStreakBuffer->timeToFade();
-    const auto& minSeg = motionStreakBuffer->minSeg();
-    const auto& strokeWidth = motionStreakBuffer->strokeWidth();
-    
-    const auto& color = motionStreakBuffer->strokeColor();
-    const cocos2d::Color3B strokeColor(color->r(), color->g(), color->b());
-    
-    const auto& imagePath = motionStreakBuffer->texturePath();
-    
-    auto motionStreak = cocos2d::MotionStreak::create(timeToFade, minSeg, strokeWidth, strokeColor, imagePath->c_str());
-    parseMotionStreak(motionStreak, motionStreakBuffer);
-    
-    return motionStreak;
-}
-
-void CreatorReader::parseMotionStreak(cocos2d::MotionStreak* motionStreak, const buffers::MotionStreak* motionStreakBuffer) const
-{
-    const auto& nodeBuffer = motionStreakBuffer->node();
-    
-    // can not reuse parseNode because MotionStreak::setOpacity will cause assert error
-    // parseNode(motionStreak, nodeBuffer);
-    {
-        auto node = motionStreak;
-        const auto& globalZOrder = nodeBuffer->globalZOrder();
-        node->setGlobalZOrder(globalZOrder);
-        const auto& localZOrder = nodeBuffer->localZOrder();
-        node->setLocalZOrder(localZOrder);
-        const auto& name = nodeBuffer->name();
-        if (name) node->setName(name->str());
-        const auto& anchorPoint = nodeBuffer->anchorPoint();
-        if (anchorPoint) node->setAnchorPoint(cocos2d::Vec2(anchorPoint->x(), anchorPoint->y()));
-        const auto& color = nodeBuffer->color();
-        if (color) node->setColor(cocos2d::Color3B(color->r(), color->g(), color->b()));
-        const auto& cascadeOpacityEnabled = nodeBuffer->cascadeOpacityEnabled();
-        node->setCascadeOpacityEnabled(cascadeOpacityEnabled);
-        const auto& opacityModifyRGB = nodeBuffer->opacityModifyRGB();
-        node->setOpacityModifyRGB(opacityModifyRGB);
-        const auto position = nodeBuffer->position();
-        if (position) node->setPosition(cocos2d::Vec2(position->x(), position->y()));
-        node->setRotationSkewX(nodeBuffer->rotationSkewX());
-        node->setRotationSkewY(nodeBuffer->rotationSkewY());
-        node->setScaleX(nodeBuffer->scaleX());
-        node->setScaleY(nodeBuffer->scaleY());
-        node->setSkewX(nodeBuffer->skewX());
-        node->setSkewY(nodeBuffer->skewY());
-        const auto& tag = nodeBuffer->tag();
-        node->setTag(tag);
-        const auto contentSize = nodeBuffer->contentSize();
-        if (contentSize) node->setContentSize(cocos2d::Size(contentSize->w(), contentSize->h()));
-        const auto enabled = nodeBuffer->enabled();
-        node->setVisible(enabled);
-        
-        // animation?
-        parseNodeAnimation(node, nodeBuffer);
-        
-        parseColliders(node, nodeBuffer);
-    }
-    
-    const auto& fastMode = motionStreakBuffer->fastMode();
-    motionStreak->setFastMode(fastMode);
 }
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

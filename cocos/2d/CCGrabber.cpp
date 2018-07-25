@@ -68,7 +68,7 @@ void Grabber::beforeRender(Texture2D* /*texture*/)
     glGetFloatv(GL_COLOR_CLEAR_VALUE, _oldClearColor);
     // FIXME: doesn't work with RGB565.
 
-    glClearColor(0, 0, 0, 0);
+    // glClearColor(0, 0, 0, 0);
 
     // BUG #631: To fix #631, uncomment the lines with #631
     // Warning: But it Grabber won't work with 2 effects at the same time
@@ -85,7 +85,7 @@ void Grabber::afterRender(cocos2d::Texture2D* /*texture*/)
 //  glColorMask(true, true, true, true);    // #631
     
     // Restore clear color
-    glClearColor(_oldClearColor[0], _oldClearColor[1], _oldClearColor[2], _oldClearColor[3]);
+    // glClearColor(_oldClearColor[0], _oldClearColor[1], _oldClearColor[2], _oldClearColor[3]);
 }
 
 Grabber::~Grabber()

@@ -411,6 +411,7 @@ protected:
     Color4F  _squareColors[4];
     CustomCommand _customCommand;
     Vec3 _noMVPVertices[4];
+	unsigned short _indices[6];
 private:
     CC_DISALLOW_COPY_AND_ASSIGN(LayerColor);
 
