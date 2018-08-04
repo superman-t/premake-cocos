@@ -191,7 +191,7 @@ void CreatorReader::setup()
             glview->setDesignResolutionSize(designResolution->w(), designResolution->h(), ResolutionPolicy::NO_BORDER);
 
     setupSpriteFrames();
-    setupCollisionMatrix();
+    // setupCollisionMatrix();
     
     if (designResolution)
     {
@@ -456,7 +456,7 @@ void CreatorReader::parseNode(cocos2d::Node* node, const buffers::Node* nodeBuff
     // animation?
     parseNodeAnimation(node, nodeBuffer);
     
-    parseColliders(node, nodeBuffer);
+    // parseColliders(node, nodeBuffer);
 }
 
 void CreatorReader::parseNodeAnimation(cocos2d::Node* node, const buffers::Node* nodeBuffer) const
@@ -821,16 +821,16 @@ void CreatorReader::parseProgressBar(cocos2d::ui::LoadingBar* progressBar, const
     if (progressBarBuffer->barSpriteType() == buffers::SpriteType_Sliced)
         progressBar->setScale9Enabled(true);
     
-    // background sprite
-    if (progressBarBuffer->backgroundSpriteFrameName()) {
-        auto sprite = cocos2d::Sprite::create(progressBarBuffer->backgroundSpriteFrameName()->c_str());
-        sprite->setStretchEnabled(true);
-        sprite->setContentSize(progressBar->getContentSize());
-        sprite->setAnchorPoint(cocos2d::Vec2(0,0));
-        // background sprite should show first
-        progressBar->addChild(sprite, -1);
-    }
-    
+    // // background sprite
+    // if (progressBarBuffer->backgroundSpriteFrameName()) {
+    //     auto sprite = cocos2d::Sprite::create(progressBarBuffer->backgroundSpriteFrameName()->c_str());
+    //     sprite->setStretchEnabled(true);
+    //     sprite->setContentSize(progressBar->getContentSize());
+    //     sprite->setAnchorPoint(cocos2d::Vec2(0,0));
+    //     // background sprite should show first
+    //     progressBar->addChild(sprite, -1);
+    // }
+    //
     if (progressBarBuffer->reverse())
         progressBar->setDirection(cocos2d::ui::LoadingBar::Direction::RIGHT);
 }

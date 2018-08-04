@@ -86,7 +86,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
      director->setAnimationInterval(1.0f / 60);
   
-	   creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/helloworld.ccreator" );
+	   creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/Example.ccreator" );
   
 	   // will create the needed spritesheets + design resolution
 	   reader->setup();
@@ -96,17 +96,17 @@ bool AppDelegate::applicationDidFinishLaunching()
 	   reader->retain();
   
 	  // ...and use it
-
-	   auto canvas = scene->getChildByName( "Canvas" );
-   
-	   cocos2d::ui::Button* button = (cocos2d::ui::Button*)canvas->getChildByName( "New Button" );
-   
-	   button->addClickEventListener( [=]( cocos2d::Ref* pSenders )
-	   {
-		   cocos2d::Sprite* sprite = (cocos2d::Sprite*) canvas->getChildByName( "Sprite1" );
-		   reader->getAnimationManager()->playAnimationClip( sprite, "anim" );
-   
-	   } );
+    //
+	   // auto canvas = scene->getChildByName( "Canvas" );
+    //
+	   // cocos2d::ui::Button* button = (cocos2d::ui::Button*)canvas->getChildByName( "New Button" );
+    //
+	   // button->addClickEventListener( [=]( cocos2d::Ref* pSenders )
+	   // {
+		  //  cocos2d::Sprite* sprite = (cocos2d::Sprite*) canvas->getChildByName( "Sprite1" );
+		  //  reader->getAnimationManager()->playAnimationClip( sprite, "anim" );
+    //
+	   // } );
 	  Director::getInstance()->replaceScene( scene );
 
 	  // // create a scene. it's an autorelease object
