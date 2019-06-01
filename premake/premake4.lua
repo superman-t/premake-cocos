@@ -47,7 +47,7 @@ if os.get() == "windows" then
 
 		cocos2d.SetTargetDirectories()
 
-		cocos2d.CopyFiles("../external/win32/libs/libglew32.dll", "Bin/libglew32.dll")
+		cocos2d.CopyFiles("../external/win32/libs/glew32.dll", "Bin/glew32.dll")
 		cocos2d.CopyFiles("../tests/cpp-empty-test/Resources", "Bin/Resources")
 
 		configuration {"Debug"}
@@ -94,7 +94,7 @@ if os.get() == "windows" then
 
 		cocos2d.SetTargetDirectories()
 
-		cocos2d.CopyFiles("../external/win32/libs/libglew32.dll", "Bin/libglew32.dll")
+		cocos2d.CopyFiles("../external/win32/libs/glew32.dll", "Bin/glew32.dll")
 		cocos2d.CopyFiles("../tests/lua-empty-test/res", "Bin/res")
 		cocos2d.CopyFiles("../tests/lua-empty-test/src", "Bin/src")
 		cocos2d.CopyFiles("../cocos/scripting/lua-bindings/script", "Bin/src/cocos")

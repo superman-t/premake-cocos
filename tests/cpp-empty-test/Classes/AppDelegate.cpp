@@ -86,7 +86,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
      director->setAnimationInterval(1.0f / 60);
   
-	   creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/Example.ccreator" );
+	   creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/hello.ccreator" );
   
 	   // will create the needed spritesheets + design resolution
 	   reader->setup();
