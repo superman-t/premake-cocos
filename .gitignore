@@ -159,4 +159,9 @@ build*
 *_back
 Bin
 Lib
-
+*.pdb
+*.obj
+*.tlog
+*.cache
+Debug*
+Release*
