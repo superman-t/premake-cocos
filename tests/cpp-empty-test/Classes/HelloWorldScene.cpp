@@ -2,7 +2,7 @@
 #include "AppMacros.h"
 #include "UIButton.h"
 #include "UIScrollView.h"
-// #include "CreatorReader.h"
+#include "CreatorReader.h"
 #include "UIScale9Sprite.h"
 #include "CCFontAtlasCache.h"
 #include "ui/UILoadingBar.h"
@@ -45,16 +45,16 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
 
-	// creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/hello.ccreator" );
- //
-	// // will create the needed spritesheets + design resolution
-	// reader->setup();
- //
-	// // get the scene graph
-	// Scene* scene = reader->getSceneGraph();
- //
-	// // ...and use it
-	// Director::getInstance()->replaceScene( scene );
+	 creator::CreatorReader* reader = creator::CreatorReader::createWithFilename( "creator/Scene/hello.ccreator" );
+ 
+	 // will create the needed spritesheets + design resolution
+	 reader->setup();
+ 
+	 // get the scene graph
+	 Scene* scene = reader->getSceneGraph();
+ 
+	 // ...and use it
+	 Director::getInstance()->replaceScene( scene );
 
 	//  auto sprite = Sprite::create( "creator/Texture/HelloWorld.png" );
  //  //
@@ -187,7 +187,7 @@ bool HelloWorld::init()
 	// addChild( label );
 
 
-	// auto labelFreeType = cocos2d::Label::createWithTTF( u8"ÖÐ¹ú", "fonts/DFYuanW7-GB2312.ttf", 32.0f );
+	// auto labelFreeType = cocos2d::Label::createWithTTF( u8"ä¸­å›½", "fonts/DFYuanW7-GB2312.ttf", 32.0f );
 	// labelFreeType->setColor( Color3B::RED );
 	// labelFreeType->setPosition( 400, 400 );
 	// labelFreeType->enableUnderline();
@@ -195,7 +195,7 @@ bool HelloWorld::init()
  //
 	// TTFConfig ttfConfig( "fonts/HKYuanMini.ttf", 25, GlyphCollection::DYNAMIC );
 	// auto label1 = Label::createWithTTF( ttfConfig,
-	// 									"ÄãºÃ£¬Cocos2d-x v3µÄNew Label.", TextHAlignment::LEFT, 200 * 0.75 );
+	// 									"ä½ å¥½ï¼ŒCocos2d-x v3çš„New Label.", TextHAlignment::LEFT, 200 * 0.75 );
 	// if( label1 )
 	// {
 	// 	label1->setTextColor( Color4B( 128, 255, 255, 255 ) );
@@ -208,7 +208,7 @@ bool HelloWorld::init()
 	// 	label1->setTTFConfig( ttfConfig );
 	// }
 
-	// auto label = Label::createWithSystemFont( "ÄãºÃ", "Helvetica", 20.0 );
+	// auto label = Label::createWithSystemFont( "ä½ å¥½", "Helvetica", 20.0 );
 	// label->setPosition( 600, 600);
 	// label->setAnchorPoint( Vec2::ZERO );
 	// label->setTag( 123 );
@@ -670,7 +670,7 @@ bool HelloWorld::init()
 	// textField->addEventListener( CC_CALLBACK_2( HelloWorld::textFieldEvent, this ) );
 	// this->addChild( textField );
 
-	auto sprite = cocos2d::Sprite::create( "Images/CyanSquare.png" );
+	/*auto sprite = cocos2d::Sprite::create( "Images/CyanSquare.png" );
 	sprite->setColor( cocos2d::Color3B::GREEN );
 	auto size = cocos2d::Director::getInstance()->getWinSize();
 	sprite->setScale( size.width / sprite->getContentSize().width, size.height / sprite->getContentSize().height );
@@ -680,19 +680,7 @@ bool HelloWorld::init()
 
 	auto sprite2 = cocos2d::Sprite::create( "Images/btn-about-normal.png" );
 
-	sprite->addChild( sprite2);
-
-	 // cocos2d::ui::Button* button = cocos2d::ui::Button::create( "creator/Texture/background.png", "creator/Texture/background.png"  );
-  //
-	 // button->setPosition( cocos2d::Vec2( 64, 64 ) );
-	 // button->setPressedActionEnabled( true );
-	 //
-	 // this->addChild( button );
-
-
-
-
-
+	sprite->addChild( sprite2);*/
 
     return true;
 }
@@ -846,13 +834,13 @@ void HelloWorld::onChangedRadioButtonSelect( RadioButton* radioButton, RadioButt
 	{
 		case RadioButton::EventType::SELECTED:
 		{
-			CCLOG( "---¡·%s", "Selected");
+			CCLOG( "---ã€‹%s", "Selected");
 			break;
 		}
 
 		case RadioButton::EventType::UNSELECTED:
 		{
-			CCLOG("---¡·%s", "Unselected");
+			CCLOG("---ã€‹%s", "Unselected");
 			break;
 		}
 		default:

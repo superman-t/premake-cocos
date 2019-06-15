@@ -7,4 +7,5 @@ external库的简化对比
 ![](image/external.png)
 
 # 运行测试用例
-在windows平台下直接运行premake文件夹下的GenerateProjects.bat脚本，将生产build目录，使用Visual Studio( >=2015 )打开cocos2d.sln工程，将测试用例设置为启动项，编译运行。
+在windows平台下直接运行premake文件夹下的GenerateProjects.bat脚本，将生产build目录，使用Visual Studio( >=2015 )打开cocos2d.sln工程，将测试用例设置为启动项，编译运行。  
+同时CocosCreatorDemo中展示了如何使用CocosCreator导出场景文件，使用C++加载显示。
