@@ -4,9 +4,7 @@
 一下为源码和简化后的对比
 ![](image/cocos2dx.png)  
 external库的简化对比  
-   |  **三方库**  |                                                                                                                                                                                        **cocos2d-x 3.16**                                                                                                                                                                                        |                                                          **简化后的ui版本**                                                           |
-   | :----------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
-   | **external** | **android-specific<br>Box2D<br>bullet<br>chipmunk<br>clipper<br>ConvertUTF<br>curl<br>edtaa3func<br>flatbuffers<br>freetype2<br>glfw3<br>jpeg<br>json<br>linux-specific<br>md5<br>openssl<br>png<br>poly2tri<br>rapidxml<br>recast<br>spidermonkey<br>sqlite3<br>tiff<br>tinydir<br>tinyxml2<br>unzip<br>webp<br>websockets<br>win10-specific<br>win32-specific<br>xxhash<br>xxtea<br>zlib<br>** | **clipper<br>ConvertUTF<br>edtaa3func<br>poly2tri<br>rapidxml<br>tinydir<br>tinyxml2<br>unzip<br>versions.txt<br>xxhash<br>zlib<br>** |
+![](image/external.png)
 
 # 运行测试用例
 在windows平台下直接运行premake文件夹下的GenerateProjects.bat脚本，将生产build目录，使用Visual Studio( >=2015 )打开cocos2d.sln工程，将测试用例设置为启动项，编译运行。
